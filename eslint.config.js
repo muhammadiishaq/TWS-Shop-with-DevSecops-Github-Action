@@ -1,4 +1,4 @@
-export default [
+module.exports = [
   {
     files: ["**/*.js"],
     languageOptions: {
@@ -7,8 +7,7 @@ export default [
     },
     rules: {
       "no-unused-vars": "warn",
-      "no-undef": "error",
-      "semi": ["error", "always"]
+      "no-undef": "error"
     }
   }
 ];
