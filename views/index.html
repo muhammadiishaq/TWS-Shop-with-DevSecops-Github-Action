@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TWS Shop</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"><script>
+tailwind.config = {
+darkMode: "class"
+}
+</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="/js/theme.js"></script>
+
+</head>
+
+<body class="bg-white text-black dark:bg-black dark:text-white transition">
+
+<!-- NAVBAR -->
+
+<header class="backdrop-blur bg-white/70 dark:bg-gray-800/70 shadow sticky top-0">
+
+<div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+
+<h1 class="text-3xl font-bold">🛍️ TWS Shop</h1>
+
+<div class="hidden md:flex space-x-6 items-center">
+
+<a href="#">Home</a>
+<a href="#products">Products</a>
+<a href="#about">About</a>
+
+<button onclick="viewCart()" class="relative">
+🛒 <span id="cart-count">0</span>
+</button>
+
+<button onclick="toggleTheme()" class="px-4 py-2 rounded bg-gradient-to-r from-purple-500 to-pink-500 text-white">
+Theme
+</button>
+
+</div>
+
+<button onclick="toggleMenu()" class="md:hidden text-2xl">
+☰
+</button>
+
+</div>
+
+</header>
+
+<!-- HERO IMAGE -->
+
+<section 
+class="w-full h-[600px] bg-center bg-cover bg-no-repeat"
+style="background-image: url('/images/h2.png');">
+</section>
+
+<!-- PRODUCTS -->
+
+<section id="products" class="max-w-7xl mx-auto p-10">
+
+<h2 class="text-4xl font-bold text-center mb-10">
+TWS Shop Collection
+</h2>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+<!-- PRODUCT 1 -->
+
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:scale-105 transition">
+<img src="/images/product1.png" class="rounded-t-xl">
+<div class="p-4">
+<h3 class="font-bold">White Hoodie</h3>
+<p class="text-purple-500 font-semibold">$99</p>
+<button onclick="addToCart('White Hoodie',99)" class="mt-2 w-full bg-purple-600 text-white py-2 rounded">
+Add to Cart
+</button>
+<a href="/product">
+<button class="mt-2 w-full border py-2 rounded">View</button>
+</a>
+</div>
+</div>
+
+<!-- PRODUCT 2 -->
+
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:scale-105 transition">
+<img src="/images/black1.png" class="rounded-t-xl">
+<div class="p-4">
+<h3 class="font-bold">Black Hoodie</h3>
+<p class="text-purple-500 font-semibold">$99</p>
+<button onclick="addToCart('Black Hoodie',99)" class="mt-2 w-full bg-purple-600 text-white py-2 rounded">
+Add to Cart
+</button>
+<a href="/product">
+<button class="mt-2 w-full border py-2 rounded">View</button>
+</a>
+</div>
+</div>
+
+<!-- PRODUCT 3 -->
+
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:scale-105 transition">
+<img src="/images/product2.png" class="rounded-t-xl">
+<div class="p-4">
+<h3 class="font-bold">White Long Sleeve Shirt</h3>
+<p class="text-purple-500 font-semibold">$89</p>
+<button onclick="addToCart('White Long Sleeve Shirt',89)" class="mt-2 w-full bg-purple-600 text-white py-2 rounded">
+Add to Cart
+</button>
+<a href="/product">
+<button class="mt-2 w-full border py-2 rounded">View</button>
+</a>
+</div>
+</div>
+
+<!-- PRODUCT 4 -->
+
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:scale-105 transition">
+<img src="/images/black2.png" class="rounded-t-xl">
+<div class="p-4">
+<h3 class="font-bold">Black Long Sleeve Shirt</h3>
+<p class="text-purple-500 font-semibold">$89</p>
+<button onclick="addToCart('Black Long Sleeve Shirt',89)" class="mt-2 w-full bg-purple-600 text-white py-2 rounded">
+Add to Cart
+</button>
+<a href="/product">
+<button class="mt-2 w-full border py-2 rounded">View</button>
+</a>
+</div>
+</div>
+
+<!-- PRODUCT 5 -->
+
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:scale-105 transition">
+<img src="/images/product3.png" class="rounded-t-xl">
+<div class="p-4">
+<h3 class="font-bold">White Cap</h3>
+<p class="text-purple-500 font-semibold">$39</p>
+<button onclick="addToCart('White Cap',39)" class="mt-2 w-full bg-purple-600 text-white py-2 rounded">
+Add to Cart
+</button>
+<a href="/product">
+<button class="mt-2 w-full border py-2 rounded">View</button>
+</a>
+</div>
+</div>
+
+<!-- PRODUCT 6 -->
+
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:scale-105 transition">
+<img src="/images/image.png" class="rounded-t-xl">
+<div class="p-4">
+<h3 class="font-bold">Black Cap</h3>
+<p class="text-purple-500 font-semibold">$39</p>
+<button onclick="addToCart('Black Cap',39)" class="mt-2 w-full bg-purple-600 text-white py-2 rounded">
+Add to Cart
+</button>
+<a href="/product">
+<button class="mt-2 w-full border py-2 rounded">View</button>
+</a>
+</div>
+</div>
+
+<!-- PRODUCT 7 -->
+
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:scale-105 transition">
+<img src="/images/product4.png" class="rounded-t-xl">
+<div class="p-4">
+<h3 class="font-bold">White Tumbler Mug</h3>
+<p class="text-purple-500 font-semibold">$120</p>
+<button onclick="addToCart('White Tumbler Mug',120)" class="mt-2 w-full bg-purple-600 text-white py-2 rounded">
+Add to Cart
+</button>
+<a href="/product">
+<button class="mt-2 w-full border py-2 rounded">View</button>
+</a>
+</div>
+</div>
+
+<!-- PRODUCT 8 -->
+
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow hover:scale-105 transition">
+<img src="/images/black4.png" class="rounded-t-xl">
+<div class="p-4">
+<h3 class="font-bold">Black Tumbler Mug</h3>
+<p class="text-purple-500 font-semibold">$120</p>
+<button onclick="addToCart('Black Tumbler Mug',120)" class="mt-2 w-full bg-purple-600 text-white py-2 rounded">
+Add to Cart
+</button>
+<a href="/product">
+<button class="mt-2 w-full border py-2 rounded">View</button>
+</a>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about" class="bg-gray-900 text-white py-24 px-6">
+
+<div class="max-w-5xl mx-auto text-center">
+
+<h1 class="text-6xl font-bold mb-10">
+About TWS Shop
+</h1>
+
+<p class="text-xl leading-relaxed text-gray-300">
+TWS Shop offers exclusive <span class="font-semibold text-white">Train With Shubham</span> 
+apparel and lifestyle gear designed for learners and creators. Our collection includes 
+premium hoodies, comfortable long-sleeve shirts, stylish caps, and high-quality insulated 
+tumblers built for your daily routine.
+</p>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="bg-black text-white text-center py-12">
+
+<h1 class="text-5xl font-extrabold mb-4">
+TWS Shop — Premium Collection
+</h1>
+
+<h2 class="text-lg text-gray-300">
+Made by MUHAMMAD ISHAQ ❤️ | JOSH Batch Student — Happy Learning 🚀
+</h2>
+<script src="/js/cart.js"></script>
+</footer>
+
+</body>
+</html>

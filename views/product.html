@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<script>
+tailwind.config = { darkMode:"class" }
+</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script src="/js/theme.js"></script>
+<script src="/js/cart.js"></script>
+
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+
+<div class="max-w-6xl mx-auto p-10 grid md:grid-cols-2 gap-10">
+
+<img src="/images/product1.png" class="rounded shadow">
+
+<div>
+
+<h1 class="text-3xl font-bold">
+White Hoodie
+</h1>
+
+<p class="text-purple-500 text-xl mt-2">
+$59
+</p>
+
+<p class="mt-4">
+Train With Shubham Elite White Hoodie.
+</p>
+
+<button onclick="addToCart('White Hoodie',59)" class="mt-6 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded">
+Add to Cart
+</button>
+
+</div>
+
+</div>
+
+</body>
+</html>

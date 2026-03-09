@@ -1,0 +1,11 @@
+body{
+scroll-behavior:smooth;
+}
+
+.product-card{
+transition:0.3s;
+}
+
+.product-card:hover{
+transform:translateY(-6px);
+}
