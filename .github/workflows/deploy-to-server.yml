@@ -5,10 +5,10 @@
 name: Deploy To Server
 
 on:
-
-    # branches:
-    #   - work-space
-      workflow_call:
+  push:
+    branches:
+      - work-space
+      # workflow_call:
 
 
 jobs:
