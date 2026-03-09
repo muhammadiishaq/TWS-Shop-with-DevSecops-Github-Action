@@ -1,8 +1,10 @@
 name: Node.js code scan checker
 
 on:
-  push:
-    branches: [work-space]
+  workflow_call:
+    
+  # push:
+  #   branches: [work-space]
 
 jobs:
   code-quality:
