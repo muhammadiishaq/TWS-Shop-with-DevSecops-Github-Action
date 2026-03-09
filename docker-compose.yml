@@ -4,7 +4,7 @@ version: "3.9"
 
 services:
   node-app:
-    image: ${DOCKERHUB_USER}/github-actions-app:${DOCKER_TAG}
+    image: ${DOCKERHUB_USER}/tws_app:${DOCKER_TAG}
     container_name: TWS-APP
     ports:
       - "3000:3000"
