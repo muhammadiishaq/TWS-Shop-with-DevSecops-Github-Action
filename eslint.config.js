@@ -4,15 +4,17 @@ module.exports = [
     files: ["public/js/**/*.js"],
     languageOptions: {
       ecmaVersion: "latest",
-      sourceType: "script" // browser JS usually not modules
-    },
-    env: {
-      browser: true,   // allows document, window, alert, localStorage
-      es2021: true
+      sourceType: "script",
+      globals: {
+        window: "readonly",
+        document: "readonly",
+        alert: "readonly",
+        localStorage: "readonly"
+      }
     },
     rules: {
-      "no-unused-vars": "warn", // warns if a function/variable is unused
-      "no-undef": "error",      // catches real undefined variables
+      "no-unused-vars": "warn",
+      "no-undef": "error",
       "semi": ["error", "always"]
     }
   },
@@ -22,11 +24,13 @@ module.exports = [
     files: ["server.js"],
     languageOptions: {
       ecmaVersion: "latest",
-      sourceType: "commonjs"
-    },
-    env: {
-      node: true,   // allows __dirname, console, require, module
-      es2021: true
+      sourceType: "commonjs",
+      globals: {
+        __dirname: "readonly",
+        console: "readonly",
+        require: "readonly",
+        module: "readonly"
+      }
     },
     rules: {
       "no-unused-vars": "warn",
