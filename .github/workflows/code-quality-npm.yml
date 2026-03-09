@@ -1,7 +1,9 @@
 name: Node.js Code Quality
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [ work-space ]
+  # workflow_dispatch:
   # workflow_call:
     
 
