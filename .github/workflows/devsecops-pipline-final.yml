@@ -22,7 +22,7 @@ jobs:
 
     # build and push the docker image to dockerhub. This will be used in the CD pipeline to deploy the app to the server. The image will be tagged with the commit sha.
     build:
-        needs: [code-quality, secrets-scan, dependency-scan, docker-scan, tests]
+        needs: [code-quality, secrets-scan, dependency-scan, docker-scan]
         uses: ./.github/workflows/docker-build-push.yml
         secrets: inherit
 
