@@ -1,11 +1,11 @@
 name: Node.js Dependency Scan
 
 on:
-  push:
-    branches:
-      - work-space
+#   push:
+#     branches:
+#       - work-space
 
-  # workflow_call:
+  workflow_call:
 
 jobs:
   dependency-check:
