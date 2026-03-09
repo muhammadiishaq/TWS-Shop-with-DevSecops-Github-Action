@@ -1,0 +1,41 @@
+name: DevSecOps End To End Pipeline
+
+on: 
+  workflow_dispatch: 
+
+jobs:
+    # CI (Continous Integration with Security Scanning) This will run the code quality checks, secrets scan, dependency scan and dockerfile scan. If any of these checks fail, the workflow will fail and the app will not be built or deployed to the server. This is a crucial step in the DevSecOps pipeline as it ensures that only secure code is built and deployed to production.
+    code-quality:
+        uses: ./.github/workflows/code-quality-npm.yml
+
+    secrets-scan:
+        uses: ./.github/workflows/secrets-check-scan.yml
+        secrets: inherit
+    
+    dependency-scan:
+        uses: ./.github/workflows/npm-dependency-scan.yml
+    
+    docker-scan:
+        uses: ./.github/workflows/dockerfile-check-lint.yml
+
+
+
+    # build and push the docker image to dockerhub. This will be used in the CD pipeline to deploy the app to the server. The image will be tagged with the commit sha.
+    build:
+        needs: [code-quality, secrets-scan, dependency-scan, docker-scan, tests]
+        uses: ./.github/workflows/docker-build-push.yml
+        secrets: inherit
+
+    # Image scanning using trivy. This will scan the docker image for vulnerabilities and report them in the workflow. If there are any vulnerabilities found, the workflow will fail and the app will not be deployed to the server. This is a crucial step in the DevSecOps pipeline as it ensures that only secure images are deployed to production.
+    trivy:
+        needs: [build]
+        uses: ./.github/workflows/image-scan.yml
+        secrets: inherit
+
+    # CD (Continous Deployment) This will deploy the app to the server using docker-compose. It will copy the docker-compose file to
+    deploy:
+        needs: [trivy]
+        uses: ./.github/workflows/deploy-to-server.yml
+        secrets: inherit
+
+    

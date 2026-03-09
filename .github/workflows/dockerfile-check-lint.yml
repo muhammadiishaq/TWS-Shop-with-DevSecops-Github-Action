@@ -1,11 +1,12 @@
 # Scan the Dockerfile for issues & CVEs
-name: Docker Lint
+name: Dockerfile check Lint
 
-on: 
+on:
+  workflow_call:
   # push:
   #   branches: [ work-space ]
 
-  workflow_call:
+
 
 jobs:
     validate-dockerfile:
