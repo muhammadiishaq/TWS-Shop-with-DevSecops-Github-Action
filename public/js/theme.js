@@ -24,4 +24,4 @@ if(savedTheme === "dark"){
 document.body.classList.add("dark");
 }
 
-}
+};
