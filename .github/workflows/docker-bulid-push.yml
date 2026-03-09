@@ -28,4 +28,4 @@ jobs:
                 tags: |
                     ${{ vars.DOCKERHUB_USER }}/tws_shop:${{ vars.IMAGE_TAG }}
                     ${{ vars.DOCKERHUB_USER }}/tws_shop:latest
-                    ${{ vars.DOCKERHUB_USER }}/tws_shop:${{ github.sha}}
+                    ${{ vars.DOCKERHUB_USER }}/tws_shop:${{ github.sha}} 
