@@ -1,0 +1,28 @@
+name: Node.js Code Quality
+
+on:
+  workflow_dispatch:
+  # workflow_call:
+    
+
+jobs:
+  lint-and-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+      # Run ESLint for code quality and npm audit for security scanning  
+      - name: Run ESLint
+        run: npx eslint ./server.js ./public/js/*.js
+      # Run npm audit to check for vulnerabilities in dependencies
+      - name: Run Security Scan
+        run: npm audit --audit-level=moderate
