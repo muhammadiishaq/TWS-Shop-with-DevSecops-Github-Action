@@ -1,7 +1,7 @@
 name: DevSecOps End To End Pipeline
 
 on: 
-  workflow_call:
+  workflow_dispatch:
 
 jobs:
     # CI (Continous Integration with Security Scanning) This will run the code quality checks, secrets scan, dependency scan and dockerfile scan. If any of these checks fail, the workflow will fail and the app will not be built or deployed to the server. This is a crucial step in the DevSecOps pipeline as it ensures that only secure code is built and deployed to production.
