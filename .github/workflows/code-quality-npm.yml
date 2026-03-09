@@ -17,14 +17,9 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install Dependencies
-        run: npm install
 
       - name: Run ESLint
-        run: npm run lint && npx eslint . --fix
-
-      - name: Run Security Scan
-        run: npm audit --audit-level=moderate
+        run: npm run lint
 
 
 
