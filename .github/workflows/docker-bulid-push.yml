@@ -1,9 +1,9 @@
 name: Docker Build & Push
 
 on: 
-  push:
-    branches: [ work-space ]  
-    # workflow_call:
+  # push:
+  #   branches: [ work-space ]  
+     workflow_call:
 
 jobs:
     build-and-push:

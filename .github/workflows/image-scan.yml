@@ -2,7 +2,9 @@
 name: Image Scanner
 
 on: 
-    workflow_call:
+  push:
+    branches: [ work-space ]  
+    # workflow_call:
 
 jobs:
     image-scanner:
