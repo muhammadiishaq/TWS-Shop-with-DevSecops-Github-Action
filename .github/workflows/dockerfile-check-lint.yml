@@ -2,7 +2,10 @@
 name: Docker Lint
 
 on: 
-    workflow_call:
+  push:
+    branches: [ work-space ]
+
+    #workflow_call:
 
 jobs:
     validate-dockerfile:
