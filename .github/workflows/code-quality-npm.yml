@@ -1,18 +1,17 @@
-name: Node.js Code Quality
+name: Node.js CI Pipeline
 
 on:
   push:
-    branches: [ work-space ]
-  # workflow_dispatch:
-  # workflow_call:
-    
+    branches: [work-space]
+  pull_request:
+    branches: [work-space]
 
 jobs:
-  lint-and-scan:
+  code-quality:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -20,11 +19,20 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
-      # Run ESLint for code quality and npm audit for security scanning  
+
+      - name: Install ESLint and Prettier
+        run: npm install eslint prettier --save-dev
+
       - name: Run ESLint
-        run: npx eslint ./server.js ./js/*.js 
-      # Run npm audit to check for vulnerabilities in dependencies
+        run: npx eslint .
+
+      # - name: Check Code Formatting
+      #   run: npx prettier --check .
+
       - name: Run Security Scan
         run: npm audit --audit-level=moderate
+
+      # - name: Run Tests
+      #   run: npm test || echo "No tests configured"
