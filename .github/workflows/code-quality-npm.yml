@@ -1,0 +1,72 @@
+# This workflow checks the code quality of the Node.js application using ESLint. It is triggered by the code-quality-npm.yml workflow when it is called. The workflow consists of the following steps:
+
+name: Node.js code scan checker
+
+on:
+  workflow_call:
+
+jobs:
+  code-quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+      # Run ESLint to check for code quality issues
+      - name: Run ESLint
+        run: npm run lint
+
+
+
+
+
+
+
+
+
+# name: Node.js CI Pipeline
+
+# on:
+#   push:
+#     branches: [work-space]
+#   pull_request:
+#     branches: [work-space]
+
+# jobs:
+#   code-quality:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v4
+
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: 18
+
+#       - name: Install Dependencies
+#         run: npm install
+
+#       - name: Install ESLint and Prettier
+#         run: npm install eslint prettier --save-dev
+
+#       - name: Run ESLint
+#         run: npx eslint .
+
+#       # - name: Check Code Formatting
+#       #   run: npx prettier --check .
+
+#       - name: Run Security Scan
+#         run: npm audit --audit-level=moderate
+
+#       # - name: Run Tests
+#       #   run: npm test || echo "No tests configured"

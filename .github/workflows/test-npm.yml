@@ -1,0 +1,25 @@
+# This workflow will run the tests for the npm package. It will be triggered by a workflow call from the deploy-to-server.yml workflow. It will run the tests on the latest version of node. If the tests pass, it will return a success status to the deploy-to-server.yml workflow. If the tests fail, it will return a failure status to the deploy-to-server.yml workflow.
+
+name: Node Testing
+
+on:
+  workflow_call:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: install dependencies
+        run: npm install
+
+      - name: run tests
+        run: npm test
