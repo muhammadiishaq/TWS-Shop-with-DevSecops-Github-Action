@@ -1,0 +1,27 @@
+name: Node.js Dependency Scan
+
+on:
+#   push:
+#     branches:
+#       - work-space
+
+  workflow_call:
+
+jobs:
+  dependency-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Audit dependencies
+        run: npm audit --audit-level=moderate
