@@ -1,12 +1,8 @@
-# Scan the Dockerfile for issues & CVEs
+# Scan Dockerfile for best practices and common issues using Hadolint.
 name: Dockerfile check Lint
 
 on:
   workflow_call:
-  # push:
-  #   branches: [ work-space ]
-
-
 
 jobs:
     validate-dockerfile:

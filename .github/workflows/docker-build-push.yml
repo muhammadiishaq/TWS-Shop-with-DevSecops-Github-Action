@@ -1,10 +1,10 @@
+# This workflow builds a Docker image from the Dockerfile in the repository and pushes it to Docker Hub. It is triggered by the build-and-push.yml workflow after a successful build and push of the Docker image.
+
 name: Docker Build & Push
 
 on: 
- 
   workflow_call:
- # push:
-  #   branches: [ work-space ]  
+
 jobs:
     build-and-push:
         runs-on: ubuntu-latest
@@ -27,5 +27,5 @@ jobs:
                 push: true
                 tags: |
                     ${{ vars.DOCKERHUB_USER }}/tws_shop:${{ vars.IMAGE_TAG }}
-                    ${{ vars.DOCKERHUB_USER }}/tws_shop:latest
+                    ${{ vars.DOCKERHUB_USER }}/tws_shop:${{ vars.IMAGE_LATEST_TAG }}
                     ${{ vars.DOCKERHUB_USER }}/tws_shop:${{ github.sha}} 

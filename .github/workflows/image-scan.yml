@@ -1,9 +1,7 @@
-# uses Trivy image scanner for CVEs - Docker Image
+# uses Trivy to scan the docker image for vulnerabilities. The image is built and pushed to Docker Hub in the build-and-push.yml workflow.
 name: docker Image Scanner
 
 on: 
-  # push:
-  #   branches: [ work-space ]  
   workflow_call:
 
 jobs:
@@ -23,7 +21,7 @@ jobs:
             - name: Trivy Scanner
               uses: aquasecurity/trivy-action@0.35.0
               with:
-                image-ref: ${{ vars.DOCKERHUB_USER }}/tws_shop:latest #${{ github.sha }}
+                image-ref: ${{ vars.DOCKERHUB_USER }}/tws_shop:latest #${{ github.sha }} # I will use for test tag latest but in production I will use the commit sha as tag to scan the exact image that was built and pushed in the build-and-push.yml workflow.
                 severity: 'CRITICAL,HIGH'
                 exit-code: '0'
                 trivyignore: ${{ github.workspace }}/.trivyignore

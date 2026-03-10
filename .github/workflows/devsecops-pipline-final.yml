@@ -1,3 +1,5 @@
+# This is the main workflow file for the DevSecOps pipeline. It defines the different jobs that will be run in the pipeline and the order in which they will be run. The workflow is triggered by a push to the work-space branch. The workflow consists of the following jobs:
+
 name: DevSecOps End To End Pipeline
 
 on: 

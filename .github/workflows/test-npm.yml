@@ -1,3 +1,5 @@
+# This workflow will run the tests for the npm package. It will be triggered by a workflow call from the deploy-to-server.yml workflow. It will run the tests on the latest version of node. If the tests pass, it will return a success status to the deploy-to-server.yml workflow. If the tests fail, it will return a failure status to the deploy-to-server.yml workflow.
+
 name: Node Testing
 
 on:

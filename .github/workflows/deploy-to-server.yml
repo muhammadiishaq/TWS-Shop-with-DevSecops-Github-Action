@@ -6,10 +6,6 @@ name: Deploy To Server
 
 on:
   workflow_call:
-#   push:
-#     branches:
-      # - work-space
-  
 
 
 jobs:
@@ -17,7 +13,7 @@ jobs:
         runs-on: ubuntu-latest
         env:
             DOCKERHUB_USER: ${{ vars.DOCKERHUB_USER }}
-            DOCKER_TAG: ${{ github.sha }}
+            DOCKER_TAG: ${{ vars.IMAGE_LATEST_TAG }}
 
         steps:
             - name: Checkout code
@@ -59,6 +55,6 @@ jobs:
                  echo "Running App"
                  
                  export DOCKERHUB_USER=${{ vars.DOCKERHUB_USER }}
-                 export DOCKER_TAG=latest 
+                 export DOCKER_TAG=${{ vars.IMAGE_LATEST_TAG }}
                  echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login --username ${{ vars.DOCKERHUB_USER }} --password-stdin
                  cd ~/devops && docker compose down && docker compose up -d --build --force-recreate --pull always

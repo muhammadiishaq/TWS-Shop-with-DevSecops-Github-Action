@@ -1,10 +1,9 @@
+# This workflow checks the code quality of the Node.js application using ESLint. It is triggered by the code-quality-npm.yml workflow when it is called. The workflow consists of the following steps:
+
 name: Node.js code scan checker
 
 on:
   workflow_call:
-    
-  # push:
-  #   branches: [work-space]
 
 jobs:
   code-quality:
@@ -21,7 +20,7 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-
+      # Run ESLint to check for code quality issues
       - name: Run ESLint
         run: npm run lint
 

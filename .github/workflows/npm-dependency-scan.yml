@@ -1,10 +1,8 @@
+# This workflow scans Node.js dependencies for vulnerabilities using npm audit.
+
 name: Node.js Dependency Scan
 
 on:
-#   push:
-#     branches:
-#       - work-space
-
   workflow_call:
 
 jobs:
@@ -22,6 +20,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
+      # Audit dependencies with a moderate severity threshold
       - name: Audit dependencies
         run: npm audit --audit-level=moderate
