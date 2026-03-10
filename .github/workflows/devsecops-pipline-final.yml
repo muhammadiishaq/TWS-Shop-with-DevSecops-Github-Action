@@ -2,7 +2,7 @@
 
 name: DevSecOps End To End Pipeline
 
-on: 
+on:  
     push:
         branches: [ work-space ]
 
