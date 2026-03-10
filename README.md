@@ -1,6 +1,7 @@
 # TWS-Shop with DevSecOps Pipeline
 
 ![main](project-screenshot/main.png)
+![main](project-screenshot/product.png)
 
 ## Project Overview
 
